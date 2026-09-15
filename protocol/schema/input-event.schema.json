@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://xworkmate.dev/remote-desktop/v1/input-event.schema.json",
+  "title": "Remote Desktop Input Event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["protocolVersion", "sessionId", "sequence", "type"],
+  "properties": {
+    "protocolVersion": {"const": "1"},
+    "sessionId": {"type": "string", "minLength": 1},
+    "sequence": {"type": "integer", "minimum": 0},
+    "type": {
+      "enum": ["mouse_move", "mouse_down", "mouse_up", "scroll", "key_down", "key_up"]
+    },
+    "x": {"type": "number", "minimum": 0, "maximum": 1},
+    "y": {"type": "number", "minimum": 0, "maximum": 1},
+    "button": {"type": "integer", "minimum": 1},
+    "key": {"type": "string", "minLength": 1}
+  }
+}
