@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://xworkmate.dev/remote-desktop/v1/ice-candidate.schema.json",
+  "title": "Remote Desktop ICE Candidate",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["protocolVersion", "sessionId", "candidate"],
+  "properties": {
+    "protocolVersion": {"const": "1"},
+    "sessionId": {"type": "string", "minLength": 1},
+    "candidate": {"type": "string"},
+    "sdpMid": {"type": ["string", "null"]},
+    "sdpMLineIndex": {"type": ["integer", "null"], "minimum": 0}
+  }
+}

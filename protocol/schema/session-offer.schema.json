@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://xworkmate.dev/remote-desktop/v1/session-offer.schema.json",
+  "title": "Remote Desktop Session Offer",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["protocolVersion", "sessionId", "sdpOffer", "display", "video"],
+  "properties": {
+    "protocolVersion": {"const": "1"},
+    "sessionId": {"type": "string", "minLength": 1},
+    "sdpOffer": {"type": "string", "minLength": 1},
+    "display": {"type": "string", "default": ":0.0"},
+    "iceServers": {"type": "array", "items": {"type": "string"}},
+    "video": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["width", "height", "fps", "bitrateKbps"],
+      "properties": {
+        "width": {"type": "integer", "minimum": 2, "default": 1280},
+        "height": {"type": "integer", "minimum": 2, "default": 720},
+        "fps": {"type": "integer", "minimum": 1, "default": 30},
+        "bitrateKbps": {"type": "integer", "minimum": 1, "default": 2000},
+        "codec": {"const": "h264"},
+        "useGpu": {"type": "boolean", "default": false}
+      }
+    }
+  }
+}
