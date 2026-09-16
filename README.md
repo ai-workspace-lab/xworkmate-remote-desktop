@@ -12,6 +12,8 @@ Standalone remote-desktop transport extracted from `xworkmate-bridge` and
   first snapshot still imports XWorkmate App types and is not yet a standalone
   Flutter package.
 - `docs`: extraction plan and copied operational runbooks.
+- `docs/test-cases.md`: runnable baseline, protocol, integration, and future
+  cross-client verification matrix.
 
 ## Current status
 
